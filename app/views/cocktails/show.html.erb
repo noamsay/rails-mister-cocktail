@@ -1,0 +1,35 @@
+
+<div class="container">
+  <h2>Cocktail Page</h2>
+  <h4>Id:</b> <%= @cocktail.id %></h3>
+  <h4><b>Name:</b> <%= @cocktail.name %></h3>
+  <hr>
+  <div class="row">
+    <div class="col-xs-6">
+        <% @cocktail.doses.each do |dose| %>
+          <p> <b>Dose id:</b> <%= dose.id %> </p>
+          <p> <b>Dose description:</b> <%= dose.description %> </p>
+          <p> <b>Ingredient id:</b> <%= dose.ingredient.id %> </p>
+          <p> <b>Ingredient name: </b><%= dose.ingredient.name %> </p>
+          <p><%= link_to "Delete dose", cocktail_dose_path(@cocktail, dose),
+            method: :delete,
+            data: { confirm: "Are you sure?" },
+           class: "btn btn-warning"%></p>
+        <% end %>
+    </div>
+  </div>
+  <hr>
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-6">
+          <%= link_to "Add a dose", new_cocktail_dose_path(@cocktail), class: "btn btn-primary"%>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<hr>
+<p>
+<%= link_to "Back to cocktail list", cocktails_path, class: "btn btn-primary"%>
+</p>
