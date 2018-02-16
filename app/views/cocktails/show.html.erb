@@ -1,6 +1,22 @@
 <h1 class="text-center">Cocktail Page</h1>
 <h3 class="text-center">Id:</b> <%= @cocktail.id %></h3>
 <h3 class="text-center"><b>Name:</b> <%= @cocktail.name %></h3>
+<hr>
+
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12 col-sm-6 col-sm-offset-3">
+      <div class="card">
+        <% if @cocktail.picture.nil? %>
+          <h1> No picture </h1>
+        <% else %>
+          <%= cl_image_tag(@cocktail.picture, width: 300, height: 200, crop: :fill) %>
+        <% end  %>
+      <div>
+    </div>
+  </div>
+</div>
+<hr>
 
 <div class="container">
   <hr>
